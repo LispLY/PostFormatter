@@ -10,7 +10,9 @@ import Foundation
 
 extension String {
     func filterBar() -> String {
-        return replacingOccurrences(of: "-", with: " ").replacingOccurrences(of: "Objective C", with: "Objective-C")
+        return replacingOccurrences(of: "-", with: " ")
+            .replacingOccurrences(of: "Objective C", with: "Objective-C")
+            .replacingOccurrences(of: ".md", with: "", options: .caseInsensitive, range: index(endIndex, offsetBy: -3)..<endIndex)
     }
     
     func isFormatted() -> Bool {
@@ -24,7 +26,7 @@ func header(fromTitle title: String) -> String {
 layout: post
 title: \(title)
 ---
-    
+
 """
 }
 
